@@ -1,0 +1,16 @@
+[2026-11-08 16:48:01] [INFO]  [pid=117430] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=1 debug_runtime=1 baseline=0 max_clients=64
+[2026-11-08 16:48:01] [DEBUG] [pid=117430] accepted client fd=4 active_children=0
+[2026-11-08 16:48:01] [INFO]  [pid=117430] forked child pid=117438 fd=4 active_children=1
+[2026-11-08 16:48:01] [INFO]  [pid=117438] child started peer=127.0.0.1:52746 fd=4
+[2026-11-08 16:48:01] [DEBUG] [pid=117438] waiting for request deadline_ms=5000
+[2026-11-08 16:48:01] [DEBUG] [pid=117438] request=PING
+[2026-11-08 16:48:01] [DEBUG] [pid=117438] response=OK pong=1.
+[2026-11-08 16:48:01] [DEBUG] [pid=117438] waiting for request deadline_ms=10000
+[2026-11-08 16:48:01] [DEBUG] [pid=117438] request=QUIT
+[2026-11-08 16:48:01] [DEBUG] [pid=117438] response=OK bye=1.
+[2026-11-08 16:48:01] [INFO]  [pid=117438] child exited peer=127.0.0.1:52746
+[2026-11-08 16:48:01] [DEBUG] [pid=117430] accept interrupted by signal, retrying
+[2026-11-08 16:48:01] [DEBUG] [pid=117430] accept interrupted by signal, retrying
+[2026-11-08 16:48:01] [INFO]  [pid=117430] shutdown requested, closing listen socket
+[2026-11-08 16:48:01] [INFO]  [pid=117430] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:01] [INFO]  [pid=117430] server stopped

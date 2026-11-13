@@ -1,0 +1,12 @@
+# 2026-11-08 16:48:02  ps -o pid,ppid,stat,etimes,cmd --ppid 117556  (taken ~1 s after launch)
+   PID   PPID STAT ELAPSED CMD
+117588 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117589 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117591 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117592 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117593 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117600 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117602 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117603 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117604 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+117605 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug

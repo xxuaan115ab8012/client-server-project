@@ -1,0 +1,48 @@
+[2026-11-08 16:48:22] [INFO]  [pid=118189] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=0 baseline=1 max_clients=64
+[2026-11-08 16:48:22] [INFO]  [pid=118189] forked child pid=118210 fd=4 active_children=1
+[2026-11-08 16:48:22] [INFO]  [pid=118210] child started peer=127.0.0.1:42256 fd=4
+[2026-11-08 16:48:22] [INFO]  [pid=118210] baseline: unknown GET target, closing connection
+[2026-11-08 16:48:22] [INFO]  [pid=118210] child exited peer=127.0.0.1:42256
+[2026-11-08 16:48:22] [INFO]  [pid=118189] forked child pid=118238 fd=4 active_children=2
+[2026-11-08 16:48:22] [INFO]  [pid=118238] child started peer=127.0.0.1:42262 fd=4
+[2026-11-08 16:48:22] [INFO]  [pid=118238] child exited peer=127.0.0.1:42262
+[2026-11-08 16:48:22] [INFO]  [pid=118189] forked child pid=118247 fd=4 active_children=3
+[2026-11-08 16:48:22] [INFO]  [pid=118247] child started peer=127.0.0.1:42264 fd=4
+[2026-11-08 16:48:37] [INFO]  [pid=118247] client closed connection requests=0
+[2026-11-08 16:48:37] [INFO]  [pid=118247] child exited peer=127.0.0.1:42264
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118418 fd=4 active_children=4
+[2026-11-08 16:48:38] [INFO]  [pid=118418] child started peer=127.0.0.1:34044 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118418] child exited peer=127.0.0.1:34044
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118428 fd=4 active_children=5
+[2026-11-08 16:48:38] [INFO]  [pid=118428] child started peer=127.0.0.1:34058 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118428] child exited peer=127.0.0.1:34058
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118433 fd=4 active_children=6
+[2026-11-08 16:48:38] [INFO]  [pid=118433] child started peer=127.0.0.1:34066 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118433] child exited peer=127.0.0.1:34066
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118438 fd=4 active_children=7
+[2026-11-08 16:48:38] [INFO]  [pid=118438] child started peer=127.0.0.1:34070 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118438] child exited peer=127.0.0.1:34070
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118443 fd=4 active_children=8
+[2026-11-08 16:48:38] [INFO]  [pid=118443] child started peer=127.0.0.1:34078 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118443] child exited peer=127.0.0.1:34078
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118448 fd=4 active_children=9
+[2026-11-08 16:48:38] [INFO]  [pid=118448] child started peer=127.0.0.1:34088 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118448] child exited peer=127.0.0.1:34088
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118453 fd=4 active_children=10
+[2026-11-08 16:48:38] [INFO]  [pid=118453] child started peer=127.0.0.1:34096 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118453] child exited peer=127.0.0.1:34096
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118458 fd=4 active_children=11
+[2026-11-08 16:48:38] [INFO]  [pid=118458] child started peer=127.0.0.1:34110 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118458] child exited peer=127.0.0.1:34110
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118463 fd=4 active_children=12
+[2026-11-08 16:48:38] [INFO]  [pid=118463] child started peer=127.0.0.1:34116 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118463] child exited peer=127.0.0.1:34116
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118468 fd=4 active_children=13
+[2026-11-08 16:48:38] [INFO]  [pid=118468] child started peer=127.0.0.1:34120 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118468] child exited peer=127.0.0.1:34120
+[2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118473 fd=4 active_children=14
+[2026-11-08 16:48:38] [INFO]  [pid=118473] child started peer=127.0.0.1:34126 fd=4
+[2026-11-08 16:48:38] [INFO]  [pid=118473] child exited peer=127.0.0.1:34126
+[2026-11-08 16:48:39] [INFO]  [pid=118189] shutdown requested, closing listen socket
+[2026-11-08 16:48:39] [INFO]  [pid=118189] shutdown: signalled 14 child process(es)
+[2026-11-08 16:48:39] [INFO]  [pid=118189] server stopped

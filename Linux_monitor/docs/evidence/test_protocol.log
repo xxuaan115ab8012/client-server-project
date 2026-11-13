@@ -1,0 +1,142 @@
+[2026-11-08 16:47:57] test_protocol.sh start  bin=/home/wei/linux-system-monitor/build/bin port=9090
+[2026-11-08 16:47:57] server started pid=116779 args='' log=/home/wei/linux-system-monitor/docs/evidence/test_protocol_server.log
+[2026-11-08 16:47:57] 
+[2026-11-08 16:47:57] === TC-01 PING ===
+[2026-11-08 16:47:57] PASS: PING response -> 'OK pong=1'
+[2026-11-08 16:47:57] PASS: PING exit code 0
+[2026-11-08 16:47:57] 
+[2026-11-08 16:47:57] === TC-02 GET ALL ===
+[2026-11-08 16:47:57] GET ALL -> OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629
+[2026-11-08 16:47:57] PASS: GET ALL starts with OK -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has hostname -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has os -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has kernel -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has cpu_cores -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has cpu_usage_pct -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has mem_total_kb -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has mem_available_kb -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET ALL has uptime_sec -> 'OK hostname=ubuntu os=Linux kernel=5.4.0-150-generic cpu_cores=2 cpu_usage_pct=2.6 mem_total_kb=6052956 mem_available_kb=4076984 uptime_sec=60629'
+[2026-11-08 16:47:57] 
+[2026-11-08 16:47:57] === TC-03 individual queries ===
+[2026-11-08 16:47:57] PASS: GET CPU -> 'OK cpu_cores=2 cpu_usage_pct=0.0'
+[2026-11-08 16:47:57] PASS: GET MEMORY -> 'OK mem_total_kb=6052956 mem_available_kb=4076984'
+[2026-11-08 16:47:57] PASS: GET UPTIME -> 'OK uptime_sec=60629'
+[2026-11-08 16:47:57] PASS: GET HOSTNAME -> 'OK hostname=ubuntu'
+[2026-11-08 16:47:57] PASS: hostname matches `hostname` -> 'OK hostname=ubuntu'
+[2026-11-08 16:47:57] 
+[2026-11-08 16:47:57] === TC-04 three commands on one persistent connection ===
+[2026-11-08 16:47:57] OK pong=1
+OK uptime_sec=60630
+OK hostname=ubuntu
+OK bye=1
+[2026-11-08 16:47:57] PASS: 4 responses received
+[2026-11-08 16:47:57] PASS: line1 pong -> 'OK pong=1'
+[2026-11-08 16:47:57] PASS: line2 uptime -> 'OK uptime_sec=60630'
+[2026-11-08 16:47:57] PASS: line3 hostname -> 'OK hostname=ubuntu'
+[2026-11-08 16:47:57] PASS: line4 bye -> 'OK bye=1'
+[2026-11-08 16:47:57] PASS: CRLF request accepted -> 'OK pong=1'
+[2026-11-08 16:47:57] 
+[2026-11-08 16:47:57] === TC-05 QUIT terminates child ===
+[2026-11-08 16:47:57] PASS: QUIT response -> 'OK bye=1'
+[2026-11-08 16:47:58] PASS: no child remains after QUIT (children=0)
+[2026-11-08 16:47:58] PASS: server log shows 'child exited'
+[2026-11-08 16:47:58] 
+[2026-11-08 16:47:58] === Error responses ===
+[2026-11-08 16:47:58] PASS: GET UNKNOWN -> BAD_COMMAND -> 'ERR code=BAD_COMMAND detail=unknown_target'
+[2026-11-08 16:47:58] PASS: client exits non-zero on ERR (rc=1)
+[2026-11-08 16:47:58] PASS: FOO -> BAD_COMMAND -> 'ERR code=BAD_COMMAND detail=unknown_command'
+[2026-11-08 16:47:58] PASS: GET (no target) -> INVALID_ARGUMENT -> 'ERR code=INVALID_ARGUMENT detail=missing_target'
+[2026-11-08 16:47:58] PASS: DEMO without --demo -> DEMO_DISABLED -> 'ERR code=DEMO_DISABLED detail=demo_mode_off'
+[2026-11-08 16:47:58] PASS: after BAD_COMMAND connection still works -> 'OK pong=1'
+[2026-11-08 16:47:58] PASS: 300-byte request -> REQUEST_TOO_LONG -> 'ERR code=REQUEST_TOO_LONG detail=max_256_bytes'
+[2026-11-08 16:47:58] PASS: 255-byte request accepted (BAD_COMMAND) -> 'ERR code=BAD_COMMAND detail=unknown_command'
+[2026-11-08 16:47:58] PASS: 256-byte request -> REQUEST_TOO_LONG -> 'ERR code=REQUEST_TOO_LONG detail=max_256_bytes'
+[2026-11-08 16:47:58] 
+[2026-11-08 16:47:58] === DEMO mode (--demo) ===
+[2026-11-08 16:47:58] server pid=116779 stopped
+[2026-11-08 16:47:58] server started pid=116978 args='--demo' log=/home/wei/linux-system-monitor/docs/evidence/test_protocol_server_demo.log
+[2026-11-08 16:47:59] PASS: DEMO WAIT 1 -> 'OK waited_sec=1'
+[2026-11-08 16:47:59] DEMO WAIT 1 took 1.01s
+[2026-11-08 16:47:59] PASS: DEMO WAIT 9 -> INVALID_ARGUMENT -> 'ERR code=INVALID_ARGUMENT detail=wait_seconds_1_to_5'
+[2026-11-08 16:47:59] PASS: DEMO WAIT x -> INVALID_ARGUMENT -> 'ERR code=INVALID_ARGUMENT detail=wait_seconds_1_to_5'
+[2026-11-08 16:47:59] PASS: DEMO FOO -> BAD_COMMAND -> 'ERR code=BAD_COMMAND detail=unknown_subcommand'
+[2026-11-08 16:47:59] server pid=116978 stopped
+[2026-11-08 16:47:59] 
+[2026-11-08 16:47:59] === TC-06 ldd shows libcommon.so ===
+[2026-11-08 16:47:59] 	linux-vdso.so.1 (0x00007ffe8eba7000)
+	libcommon.so => /home/wei/linux-system-monitor/build/bin/../lib/libcommon.so (0x00007f153ae8b000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f153aa9a000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f153b294000)
+---
+	linux-vdso.so.1 (0x00007ffcfb78e000)
+	libcommon.so => /home/wei/linux-system-monitor/build/bin/../lib/libcommon.so (0x00007f35dc0e5000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f35dbcf4000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f35dc4ed000)
+[2026-11-08 16:47:59] PASS: server links libcommon.so
+[2026-11-08 16:47:59] PASS: client links libcommon.so
+[2026-11-08 16:47:59] PASS: libcommon.so resolved (not 'not found')
+[2026-11-08 16:47:59] 
+[2026-11-08 16:47:59] === Client CLI validation ===
+[2026-11-08 16:47:59] PASS: --idle with --command rejected (rc=2)
+[2026-11-08 16:47:59] PASS: --port 99999 rejected (rc=2)
+[2026-11-08 16:47:59] 
+[2026-11-08 16:47:59] --- server log (first run) ---
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=0 baseline=0 max_clients=64
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116791 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116791] child started peer=127.0.0.1:39744 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116791] child exited peer=127.0.0.1:39744
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116802 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116802] child started peer=127.0.0.1:39752 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116802] child exited peer=127.0.0.1:39752
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116829 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116829] child started peer=127.0.0.1:39768 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116829] child exited peer=127.0.0.1:39768
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116834 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116834] child started peer=127.0.0.1:39778 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116834] child exited peer=127.0.0.1:39778
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116839 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116839] child started peer=127.0.0.1:39786 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116839] child exited peer=127.0.0.1:39786
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116844 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116844] child started peer=127.0.0.1:39792 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116844] child exited peer=127.0.0.1:39792
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116859 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116859] child started peer=127.0.0.1:39794 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116859] child exited peer=127.0.0.1:39794
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116891 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116891] child started peer=127.0.0.1:39804 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116891] child exited peer=127.0.0.1:39804
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116779] forked child pid=116900 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116900] child started peer=127.0.0.1:39808 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:57] [INFO]  [pid=116900] child exited peer=127.0.0.1:39808
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116918 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116918] child started peer=127.0.0.1:39816 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116918] child exited peer=127.0.0.1:39816
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116925 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116925] child started peer=127.0.0.1:39828 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116925] child exited peer=127.0.0.1:39828
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116930 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116930] child started peer=127.0.0.1:39842 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116930] child exited peer=127.0.0.1:39842
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116935 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116935] child started peer=127.0.0.1:39854 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116935] child exited peer=127.0.0.1:39854
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116941 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116941] child started peer=127.0.0.1:39864 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116941] child exited peer=127.0.0.1:39864
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116952 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116952] child started peer=127.0.0.1:39870 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116952] request exceeds 256 bytes, closing
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116952] child exited peer=127.0.0.1:39870
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116960 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116960] child started peer=127.0.0.1:39876 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116960] child exited peer=127.0.0.1:39876
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] forked child pid=116968 fd=4 active_children=1
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116968] child started peer=127.0.0.1:39882 fd=4
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116968] request exceeds 256 bytes, closing
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116968] child exited peer=127.0.0.1:39882
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] shutdown requested, closing listen socket
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] shutdown: signalled 0 child process(es)
+[2026-11-08 16:47:59]   [2026-11-08 16:47:58] [INFO]  [pid=116779] server stopped
+[2026-11-08 16:47:59] 
+[2026-11-08 16:47:59] === SUMMARY: PASS=43 FAIL=0 ===

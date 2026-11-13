@@ -1,0 +1,7 @@
+[2026-11-08 16:48:00] [INFO]  [pid=117322] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=1 baseline=0 max_clients=64
+[2026-11-08 16:48:00] [INFO]  [pid=117322] forked child pid=117334 fd=4 active_children=1
+[2026-11-08 16:48:00] [INFO]  [pid=117334] child started peer=127.0.0.1:39934 fd=4
+[2026-11-08 16:48:00] [INFO]  [pid=117334] child exited peer=127.0.0.1:39934
+[2026-11-08 16:48:00] [INFO]  [pid=117322] shutdown requested, closing listen socket
+[2026-11-08 16:48:00] [INFO]  [pid=117322] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:00] [INFO]  [pid=117322] server stopped

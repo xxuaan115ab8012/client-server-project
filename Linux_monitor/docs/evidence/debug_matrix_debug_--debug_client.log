@@ -1,0 +1,6 @@
+[2026-11-08 16:48:01] [DEBUG] [pid=117437] connected to 127.0.0.1:9090 fd=3
+[2026-11-08 16:48:01] [DEBUG] [pid=117437] send: PING
+[2026-11-08 16:48:01] [DEBUG] [pid=117437] recv: OK pong=1
+[2026-11-08 16:48:01] [DEBUG] [pid=117437] send: QUIT
+[2026-11-08 16:48:01] [DEBUG] [pid=117437] recv: OK bye=1
+[2026-11-08 16:48:01] [DEBUG] [pid=117437] connection closed exit=0

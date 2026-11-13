@@ -1,0 +1,109 @@
+[2026-11-08 16:47:59] debug_matrix.sh start  port=9090
+[2026-11-08 16:47:59] 
+[2026-11-08 16:47:59] === Building release (DEBUG=0) and debug (DEBUG=1) ===
+[2026-11-08 16:47:59] built build/release and build/debug
+[2026-11-08 16:47:59] 
+[2026-11-08 16:47:59] === Static check: DEBUG-only strings in binaries ===
+[2026-11-08 16:47:59] strings | grep 'accepted client fd=' : release=0 debug=1
+[2026-11-08 16:47:59] PASS: release server does not contain the DEBUG string
+[2026-11-08 16:47:59] PASS: debug server contains the DEBUG string
+[2026-11-08 16:47:59] 
+[2026-11-08 16:47:59] === Case: build=release runtime=(none) -> expect DEBUG shown: no ===
+[2026-11-08 16:47:59] server started pid=117266 args='' log=/home/wei/linux-system-monitor/docs/evidence/debug_matrix_release_noflag_server.log
+[2026-11-08 16:47:59] client stdout: OK pong=1
+[2026-11-08 16:47:59] server pid=117266 stopped
+[2026-11-08 16:48:00] server [DEBUG] lines: 0   client [DEBUG] lines: 0
+[2026-11-08 16:48:00] server log:
+[2026-11-08 16:48:00]   | [2026-11-08 16:47:59] [INFO]  [pid=117266] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=0 baseline=0 max_clients=64
+[2026-11-08 16:48:00]   | [2026-11-08 16:47:59] [INFO]  [pid=117266] forked child pid=117278 fd=4 active_children=1
+[2026-11-08 16:48:00]   | [2026-11-08 16:47:59] [INFO]  [pid=117278] child started peer=127.0.0.1:39918 fd=4
+[2026-11-08 16:48:00]   | [2026-11-08 16:47:59] [INFO]  [pid=117278] child exited peer=127.0.0.1:39918
+[2026-11-08 16:48:00]   | [2026-11-08 16:47:59] [INFO]  [pid=117266] shutdown requested, closing listen socket
+[2026-11-08 16:48:00]   | [2026-11-08 16:47:59] [INFO]  [pid=117266] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:00]   | [2026-11-08 16:47:59] [INFO]  [pid=117266] server stopped
+[2026-11-08 16:48:00] client log:
+[2026-11-08 16:48:00] PASS: case release_noflag: PING works -> 'OK pong=1'
+[2026-11-08 16:48:00] PASS: case release_noflag: server shows no [DEBUG] (0)
+[2026-11-08 16:48:00] PASS: case release_noflag: client shows no [DEBUG] (0)
+[2026-11-08 16:48:00] PASS: case release_noflag: INFO lines still present
+[2026-11-08 16:48:00] 
+[2026-11-08 16:48:00] === Case: build=release runtime=--debug -> expect DEBUG shown: no ===
+[2026-11-08 16:48:00] server started pid=117322 args='--debug' log=/home/wei/linux-system-monitor/docs/evidence/debug_matrix_release_--debug_server.log
+[2026-11-08 16:48:00] client stdout: OK pong=1
+[2026-11-08 16:48:00] server pid=117322 stopped
+[2026-11-08 16:48:00] server [DEBUG] lines: 0   client [DEBUG] lines: 0
+[2026-11-08 16:48:00] server log:
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117322] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=1 baseline=0 max_clients=64
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117322] forked child pid=117334 fd=4 active_children=1
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117334] child started peer=127.0.0.1:39934 fd=4
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117334] child exited peer=127.0.0.1:39934
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117322] shutdown requested, closing listen socket
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117322] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117322] server stopped
+[2026-11-08 16:48:00] client log:
+[2026-11-08 16:48:00] PASS: case release_--debug: PING works -> 'OK pong=1'
+[2026-11-08 16:48:00] PASS: case release_--debug: server shows no [DEBUG] (0)
+[2026-11-08 16:48:00] PASS: case release_--debug: client shows no [DEBUG] (0)
+[2026-11-08 16:48:00] PASS: case release_--debug: INFO lines still present
+[2026-11-08 16:48:00] 
+[2026-11-08 16:48:00] === Case: build=debug runtime=(none) -> expect DEBUG shown: no ===
+[2026-11-08 16:48:00] server started pid=117378 args='' log=/home/wei/linux-system-monitor/docs/evidence/debug_matrix_debug_noflag_server.log
+[2026-11-08 16:48:00] client stdout: OK pong=1
+[2026-11-08 16:48:00] server pid=117378 stopped
+[2026-11-08 16:48:00] server [DEBUG] lines: 0   client [DEBUG] lines: 0
+[2026-11-08 16:48:00] server log:
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117378] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=1 debug_runtime=0 baseline=0 max_clients=64
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117378] forked child pid=117386 fd=4 active_children=1
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117386] child started peer=127.0.0.1:39944 fd=4
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117386] child exited peer=127.0.0.1:39944
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117378] shutdown requested, closing listen socket
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117378] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:00]   | [2026-11-08 16:48:00] [INFO]  [pid=117378] server stopped
+[2026-11-08 16:48:00] client log:
+[2026-11-08 16:48:00] PASS: case debug_noflag: PING works -> 'OK pong=1'
+[2026-11-08 16:48:00] PASS: case debug_noflag: server shows no [DEBUG] (0)
+[2026-11-08 16:48:00] PASS: case debug_noflag: client shows no [DEBUG] (0)
+[2026-11-08 16:48:01] PASS: case debug_noflag: INFO lines still present
+[2026-11-08 16:48:01] 
+[2026-11-08 16:48:01] === Case: build=debug runtime=--debug -> expect DEBUG shown: yes ===
+[2026-11-08 16:48:01] server started pid=117430 args='--debug' log=/home/wei/linux-system-monitor/docs/evidence/debug_matrix_debug_--debug_server.log
+[2026-11-08 16:48:01] client stdout: OK pong=1
+[2026-11-08 16:48:01] server pid=117430 stopped
+[2026-11-08 16:48:01] server [DEBUG] lines: 9   client [DEBUG] lines: 6
+[2026-11-08 16:48:01] server log:
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [INFO]  [pid=117430] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=1 debug_runtime=1 baseline=0 max_clients=64
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117430] accepted client fd=4 active_children=0
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [INFO]  [pid=117430] forked child pid=117438 fd=4 active_children=1
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [INFO]  [pid=117438] child started peer=127.0.0.1:52746 fd=4
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117438] waiting for request deadline_ms=5000
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117438] request=PING
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117438] response=OK pong=1.
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117438] waiting for request deadline_ms=10000
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117438] request=QUIT
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117438] response=OK bye=1.
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [INFO]  [pid=117438] child exited peer=127.0.0.1:52746
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117430] accept interrupted by signal, retrying
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117430] accept interrupted by signal, retrying
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [INFO]  [pid=117430] shutdown requested, closing listen socket
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [INFO]  [pid=117430] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [INFO]  [pid=117430] server stopped
+[2026-11-08 16:48:01] client log:
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117437] connected to 127.0.0.1:9090 fd=3
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117437] send: PING
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117437] recv: OK pong=1
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117437] send: QUIT
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117437] recv: OK bye=1
+[2026-11-08 16:48:01]   | [2026-11-08 16:48:01] [DEBUG] [pid=117437] connection closed exit=0
+[2026-11-08 16:48:01] PASS: case debug_--debug: PING works -> 'OK pong=1'
+[2026-11-08 16:48:01] PASS: case debug_--debug: server shows [DEBUG] (9)
+[2026-11-08 16:48:01] PASS: case debug_--debug: client shows [DEBUG] (6)
+[2026-11-08 16:48:01] PASS: case debug_--debug: INFO lines still present
+[2026-11-08 16:48:01] 
+[2026-11-08 16:48:01] === Matrix ===
+[2026-11-08 16:48:01] | Compile-time | Runtime  | DEBUG shown |
+[2026-11-08 16:48:01] | DEBUG=0      | (none)   | no          |
+[2026-11-08 16:48:01] | DEBUG=0      | --debug  | no          |
+[2026-11-08 16:48:01] | DEBUG=1      | (none)   | no          |
+[2026-11-08 16:48:01] | DEBUG=1      | --debug  | yes         |
+[2026-11-08 16:48:01] 
+[2026-11-08 16:48:01] === SUMMARY: PASS=18 FAIL=0 ===

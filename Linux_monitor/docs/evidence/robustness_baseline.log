@@ -1,0 +1,129 @@
+[2026-11-08 16:48:22] test_robustness.sh start  mode=baseline bin=/home/wei/linux-system-monitor/build/baseline/bin port=9090
+[2026-11-08 16:48:22] binary identity: 22856 11月 8 16:47 /home/wei/linux-system-monitor/build/baseline/bin/server
+[2026-11-08 16:48:22] server started pid=118189 args='' log=/home/wei/linux-system-monitor/docs/evidence/robustness_baseline_server.log
+[2026-11-08 16:48:22] server banner: [2026-11-08 16:48:22] [INFO]  [pid=118189] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=0 baseline=1 max_clients=64
+[2026-11-08 16:48:22] PASS: server reports baseline=1
+[2026-11-08 16:48:22] 
+[2026-11-08 16:48:22] === RB-DEMO-01: unknown command 'GET UNKNOWN' followed by 'PING' (same connection) ===
+[2026-11-08 16:48:22] client stdout:
+[2026-11-08 16:48:22]   | 
+[2026-11-08 16:48:22] client stderr:
+[2026-11-08 16:48:22]   | [2026-11-08 16:48:22] [INFO]  [pid=118209] server closed the connection
+[2026-11-08 16:48:22] client exit code: 3
+[2026-11-08 16:48:22] OBSERVED (baseline weakness reproduced): no BAD_COMMAND reply (stdout line 1 empty)
+[2026-11-08 16:48:22] OBSERVED (baseline weakness reproduced): connection closed by server (client logged EOF)
+[2026-11-08 16:48:22] OBSERVED (baseline weakness reproduced): PING never answered
+[2026-11-08 16:48:22] PASS: RB-01 parent server still alive
+[2026-11-08 16:48:22] PASS: RB-01 new connection after the incident works -> 'OK pong=1'
+[2026-11-08 16:48:22] 
+[2026-11-08 16:48:22] === RB-DEMO-02: client connects and stays silent (--idle 15); observe child each second ===
+[2026-11-08 16:48:23] idle client pid=118245, server child pid=118247
+[2026-11-08 16:48:24]   t=1s child 118247 alive stat=S
+[2026-11-08 16:48:25]   t=2s child 118247 alive stat=S
+[2026-11-08 16:48:26]   t=3s child 118247 alive stat=S
+[2026-11-08 16:48:27]   t=4s child 118247 alive stat=S
+[2026-11-08 16:48:28]   t=5s child 118247 alive stat=S
+[2026-11-08 16:48:29]   t=6s child 118247 alive stat=S
+[2026-11-08 16:48:30]   t=7s child 118247 alive stat=S
+[2026-11-08 16:48:31]   t=8s child 118247 alive stat=S
+[2026-11-08 16:48:32]   t=9s child 118247 alive stat=S
+[2026-11-08 16:48:33]   t=10s child 118247 alive stat=S
+[2026-11-08 16:48:34]   t=11s child 118247 alive stat=S
+[2026-11-08 16:48:35]   t=12s child 118247 alive stat=S
+[2026-11-08 16:48:36]   t=13s child 118247 alive stat=S
+[2026-11-08 16:48:37]   t=14s child 118247 alive stat=S
+[2026-11-08 16:48:38]   t=15s child 118247 alive stat=Z
+[2026-11-08 16:48:38] idle client stdout: 
+[2026-11-08 16:48:38] idle client stderr:
+[2026-11-08 16:48:38]   | [2026-11-08 16:48:22] [INFO]  [pid=118245] idle mode: holding connection 15 s without sending
+[2026-11-08 16:48:38]   | [2026-11-08 16:48:37] [ERROR] [pid=118245] no response within 15000 ms
+[2026-11-08 16:48:38]   | [2026-11-08 16:48:37] [INFO]  [pid=118245] idle period elapsed, connection still open; closing
+[2026-11-08 16:48:38] child was last seen alive at t=15s (request deadline is 5 s)
+[2026-11-08 16:48:38] OBSERVED (baseline weakness reproduced): child still alive after 12 s (no deadline)
+[2026-11-08 16:48:38] OBSERVED (baseline weakness reproduced): client got no TIMEOUT reply
+[2026-11-08 16:48:38] PASS: RB-02 parent server still alive
+[2026-11-08 16:48:38] PASS: RB-02 server still serves new clients -> 'OK pong=1'
+[2026-11-08 16:48:38] 
+[2026-11-08 16:48:38] === RB-DEMO-03: 10 sequential clients, then look for zombies (stat Z) ===
+[2026-11-08 16:48:38]   client 1 -> OK pong=1
+[2026-11-08 16:48:38]   client 2 -> OK pong=1
+[2026-11-08 16:48:38]   client 3 -> OK pong=1
+[2026-11-08 16:48:38]   client 4 -> OK pong=1
+[2026-11-08 16:48:38]   client 5 -> OK pong=1
+[2026-11-08 16:48:38]   client 6 -> OK pong=1
+[2026-11-08 16:48:38]   client 7 -> OK pong=1
+[2026-11-08 16:48:38]   client 8 -> OK pong=1
+[2026-11-08 16:48:38]   client 9 -> OK pong=1
+[2026-11-08 16:48:38]   client 10 -> OK pong=1
+[2026-11-08 16:48:39] ps -o pid,ppid,stat,etimes,cmd --ppid 118189:
+[2026-11-08 16:48:39]   |    PID   PPID STAT ELAPSED CMD
+[2026-11-08 16:48:39]   | 118210 118189 Z         16 [server] <defunct>
+[2026-11-08 16:48:39]   | 118238 118189 Z         16 [server] <defunct>
+[2026-11-08 16:48:39]   | 118247 118189 Z         16 [server] <defunct>
+[2026-11-08 16:48:39]   | 118418 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118428 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118433 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118438 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118443 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118448 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118453 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118458 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118463 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118468 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39]   | 118473 118189 Z          1 [server] <defunct>
+[2026-11-08 16:48:39] zombie children: 14
+[2026-11-08 16:48:39] OBSERVED (baseline weakness reproduced): zombies accumulated (zombies=14, expected >= 10; earlier RB-01/RB-02 connections add a few more)
+[2026-11-08 16:48:39] PASS: RB-03 parent server still alive
+[2026-11-08 16:48:39] server pid=118189 stopped
+[2026-11-08 16:48:39] 
+[2026-11-08 16:48:39] --- server log (baseline) ---
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118189] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=0 baseline=1 max_clients=64
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118189] forked child pid=118210 fd=4 active_children=1
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118210] child started peer=127.0.0.1:42256 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118210] baseline: unknown GET target, closing connection
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118210] child exited peer=127.0.0.1:42256
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118189] forked child pid=118238 fd=4 active_children=2
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118238] child started peer=127.0.0.1:42262 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118238] child exited peer=127.0.0.1:42262
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118189] forked child pid=118247 fd=4 active_children=3
+[2026-11-08 16:48:39]   [2026-11-08 16:48:22] [INFO]  [pid=118247] child started peer=127.0.0.1:42264 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:37] [INFO]  [pid=118247] client closed connection requests=0
+[2026-11-08 16:48:39]   [2026-11-08 16:48:37] [INFO]  [pid=118247] child exited peer=127.0.0.1:42264
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118418 fd=4 active_children=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118418] child started peer=127.0.0.1:34044 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118418] child exited peer=127.0.0.1:34044
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118428 fd=4 active_children=5
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118428] child started peer=127.0.0.1:34058 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118428] child exited peer=127.0.0.1:34058
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118433 fd=4 active_children=6
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118433] child started peer=127.0.0.1:34066 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118433] child exited peer=127.0.0.1:34066
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118438 fd=4 active_children=7
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118438] child started peer=127.0.0.1:34070 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118438] child exited peer=127.0.0.1:34070
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118443 fd=4 active_children=8
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118443] child started peer=127.0.0.1:34078 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118443] child exited peer=127.0.0.1:34078
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118448 fd=4 active_children=9
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118448] child started peer=127.0.0.1:34088 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118448] child exited peer=127.0.0.1:34088
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118453 fd=4 active_children=10
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118453] child started peer=127.0.0.1:34096 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118453] child exited peer=127.0.0.1:34096
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118458 fd=4 active_children=11
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118458] child started peer=127.0.0.1:34110 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118458] child exited peer=127.0.0.1:34110
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118463 fd=4 active_children=12
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118463] child started peer=127.0.0.1:34116 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118463] child exited peer=127.0.0.1:34116
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118468 fd=4 active_children=13
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118468] child started peer=127.0.0.1:34120 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118468] child exited peer=127.0.0.1:34120
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118189] forked child pid=118473 fd=4 active_children=14
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118473] child started peer=127.0.0.1:34126 fd=4
+[2026-11-08 16:48:39]   [2026-11-08 16:48:38] [INFO]  [pid=118473] child exited peer=127.0.0.1:34126
+[2026-11-08 16:48:39]   [2026-11-08 16:48:39] [INFO]  [pid=118189] shutdown requested, closing listen socket
+[2026-11-08 16:48:39]   [2026-11-08 16:48:39] [INFO]  [pid=118189] shutdown: signalled 14 child process(es)
+[2026-11-08 16:48:39]   [2026-11-08 16:48:39] [INFO]  [pid=118189] server stopped
+[2026-11-08 16:48:39] 
+[2026-11-08 16:48:39] === SUMMARY: PASS=6 FAIL=0 ===

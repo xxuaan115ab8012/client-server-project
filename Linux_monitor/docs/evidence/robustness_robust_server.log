@@ -1,0 +1,47 @@
+[2026-11-08 16:48:05] [INFO]  [pid=117843] server listening addr=127.0.0.1:9090 demo=0 debug_compiled=0 debug_runtime=0 baseline=0 max_clients=64
+[2026-11-08 16:48:05] [INFO]  [pid=117843] forked child pid=117864 fd=4 active_children=1
+[2026-11-08 16:48:05] [INFO]  [pid=117864] child started peer=127.0.0.1:52824 fd=4
+[2026-11-08 16:48:05] [INFO]  [pid=117864] child exited peer=127.0.0.1:52824
+[2026-11-08 16:48:05] [INFO]  [pid=117843] forked child pid=117889 fd=4 active_children=1
+[2026-11-08 16:48:05] [INFO]  [pid=117889] child started peer=127.0.0.1:52836 fd=4
+[2026-11-08 16:48:05] [INFO]  [pid=117889] child exited peer=127.0.0.1:52836
+[2026-11-08 16:48:05] [INFO]  [pid=117843] forked child pid=117898 fd=4 active_children=1
+[2026-11-08 16:48:05] [INFO]  [pid=117898] child started peer=127.0.0.1:52846 fd=4
+[2026-11-08 16:48:10] [INFO]  [pid=117898] request timeout after 5000 ms, closing
+[2026-11-08 16:48:10] [INFO]  [pid=117898] child exited peer=127.0.0.1:52846
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=117986 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=117986] child started peer=127.0.0.1:42154 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=117986] child exited peer=127.0.0.1:42154
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=117996 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=117996] child started peer=127.0.0.1:42158 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=117996] child exited peer=127.0.0.1:42158
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118001 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118001] child started peer=127.0.0.1:42174 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118001] child exited peer=127.0.0.1:42174
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118006 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118006] child started peer=127.0.0.1:42188 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118006] child exited peer=127.0.0.1:42188
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118011 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118011] child started peer=127.0.0.1:42198 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118011] child exited peer=127.0.0.1:42198
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118016 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118016] child started peer=127.0.0.1:42200 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118016] child exited peer=127.0.0.1:42200
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118021 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118021] child started peer=127.0.0.1:42210 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118021] child exited peer=127.0.0.1:42210
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118026 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118026] child started peer=127.0.0.1:42224 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118026] child exited peer=127.0.0.1:42224
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118031 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118031] child started peer=127.0.0.1:42240 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118031] child exited peer=127.0.0.1:42240
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118036 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118036] child started peer=127.0.0.1:42246 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118036] child exited peer=127.0.0.1:42246
+[2026-11-08 16:48:21] [INFO]  [pid=117843] forked child pid=118041 fd=4 active_children=1
+[2026-11-08 16:48:21] [INFO]  [pid=118041] child started peer=127.0.0.1:42248 fd=4
+[2026-11-08 16:48:21] [INFO]  [pid=118041] child exited peer=127.0.0.1:42248
+[2026-11-08 16:48:22] [INFO]  [pid=117843] shutdown requested, closing listen socket
+[2026-11-08 16:48:22] [INFO]  [pid=117843] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:22] [INFO]  [pid=117843] server stopped

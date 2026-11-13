@@ -1,0 +1,78 @@
+[2026-11-08 16:48:01] concurrent_10.sh start  N=10 wait=3s bin=/home/wei/linux-system-monitor/build/bin port=9090
+[2026-11-08 16:48:01] server started pid=117556 args='--demo --debug' log=/home/wei/linux-system-monitor/docs/evidence/concurrent_10_server.log
+[2026-11-08 16:48:01] 
+[2026-11-08 16:48:01] === Launching 10 clients with 'DEMO WAIT 3' in parallel ===
+[2026-11-08 16:48:01] launched 10 clients at 2026-11-08 16:48:01
+[2026-11-08 16:48:02] children alive 1 s after launch: 10
+[2026-11-08 16:48:02]   # 2026-11-08 16:48:02  ps -o pid,ppid,stat,etimes,cmd --ppid 117556  (taken ~1 s after launch)
+[2026-11-08 16:48:02]      PID   PPID STAT ELAPSED CMD
+[2026-11-08 16:48:02]   117588 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117589 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117591 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117592 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117593 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117600 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117602 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117603 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117604 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:02]   117605 117556 S          1 /home/wei/linux-system-monitor/build/bin/server --host 127.0.0.1 --port 9090 --demo --debug
+[2026-11-08 16:48:04] 
+[2026-11-08 16:48:04] === Results ===
+[2026-11-08 16:48:04] client 1: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 2: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 3: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 4: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 5: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 6: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 7: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 8: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 9: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:04] client 10: rc=0 resp='OK waited_sec=3'
+[2026-11-08 16:48:05] total wall time for 10 parallel 'DEMO WAIT 3': 3.02s (sequential would be ~30s)
+[2026-11-08 16:48:05] distinct child PIDs in server log: 10 -> 117588 117589 117591 117592 117593 117600 117602 117603 117604 117605 
+[2026-11-08 16:48:05] server log: 'child started'=10 'child exited'=10
+[2026-11-08 16:48:05] children still alive after test: 0
+[2026-11-08 16:48:05] PASS: all 10 clients received 'OK waited_sec=3' (10/10)
+[2026-11-08 16:48:05] PASS: at least 10 children alive simultaneously (10)
+[2026-11-08 16:48:05] PASS: server log shows 10 distinct child PIDs (10)
+[2026-11-08 16:48:05] PASS: wall time < 9s (concurrent, not sequential): 3.02s
+[2026-11-08 16:48:05] PASS: no children left after completion (0)
+[2026-11-08 16:48:05] server pid=117556 stopped
+[2026-11-08 16:48:05] 
+[2026-11-08 16:48:05] --- server log ---
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] server listening addr=127.0.0.1:9090 demo=1 debug_compiled=0 debug_runtime=1 baseline=0 max_clients=64
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117588 fd=4 active_children=1
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117589 fd=4 active_children=2
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117589] child started peer=127.0.0.1:52758 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117591 fd=4 active_children=3
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117592 fd=4 active_children=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117591] child started peer=127.0.0.1:52768 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117592] child started peer=127.0.0.1:52784 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117593 fd=4 active_children=5
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117593] child started peer=127.0.0.1:52786 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117588] child started peer=127.0.0.1:52750 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117600 fd=4 active_children=6
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117602 fd=4 active_children=7
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117603 fd=4 active_children=8
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117600] child started peer=127.0.0.1:52792 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117604 fd=4 active_children=9
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117556] forked child pid=117605 fd=4 active_children=10
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117602] child started peer=127.0.0.1:52796 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117603] child started peer=127.0.0.1:52812 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117604] child started peer=127.0.0.1:52816 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:01] [INFO]  [pid=117605] child started peer=127.0.0.1:52818 fd=4
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117589] child exited peer=127.0.0.1:52758
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117591] child exited peer=127.0.0.1:52768
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117593] child exited peer=127.0.0.1:52786
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117592] child exited peer=127.0.0.1:52784
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117588] child exited peer=127.0.0.1:52750
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117600] child exited peer=127.0.0.1:52792
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117605] child exited peer=127.0.0.1:52818
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117604] child exited peer=127.0.0.1:52816
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117602] child exited peer=127.0.0.1:52796
+[2026-11-08 16:48:05]   [2026-11-08 16:48:04] [INFO]  [pid=117603] child exited peer=127.0.0.1:52812
+[2026-11-08 16:48:05]   [2026-11-08 16:48:05] [INFO]  [pid=117556] shutdown requested, closing listen socket
+[2026-11-08 16:48:05]   [2026-11-08 16:48:05] [INFO]  [pid=117556] shutdown: signalled 0 child process(es)
+[2026-11-08 16:48:05]   [2026-11-08 16:48:05] [INFO]  [pid=117556] server stopped
+[2026-11-08 16:48:05] 
+[2026-11-08 16:48:05] === SUMMARY: PASS=5 FAIL=0 ===

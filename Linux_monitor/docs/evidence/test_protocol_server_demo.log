@@ -1,0 +1,16 @@
+[2026-11-08 16:47:58] [INFO]  [pid=116978] server listening addr=127.0.0.1:9090 demo=1 debug_compiled=0 debug_runtime=0 baseline=0 max_clients=64
+[2026-11-08 16:47:58] [INFO]  [pid=116978] forked child pid=116987 fd=4 active_children=1
+[2026-11-08 16:47:58] [INFO]  [pid=116987] child started peer=127.0.0.1:39886 fd=4
+[2026-11-08 16:47:59] [INFO]  [pid=116987] child exited peer=127.0.0.1:39886
+[2026-11-08 16:47:59] [INFO]  [pid=116978] forked child pid=116996 fd=4 active_children=1
+[2026-11-08 16:47:59] [INFO]  [pid=116996] child started peer=127.0.0.1:39892 fd=4
+[2026-11-08 16:47:59] [INFO]  [pid=116996] child exited peer=127.0.0.1:39892
+[2026-11-08 16:47:59] [INFO]  [pid=116978] forked child pid=117001 fd=4 active_children=1
+[2026-11-08 16:47:59] [INFO]  [pid=117001] child started peer=127.0.0.1:39900 fd=4
+[2026-11-08 16:47:59] [INFO]  [pid=117001] child exited peer=127.0.0.1:39900
+[2026-11-08 16:47:59] [INFO]  [pid=116978] forked child pid=117006 fd=4 active_children=1
+[2026-11-08 16:47:59] [INFO]  [pid=117006] child started peer=127.0.0.1:39912 fd=4
+[2026-11-08 16:47:59] [INFO]  [pid=117006] child exited peer=127.0.0.1:39912
+[2026-11-08 16:47:59] [INFO]  [pid=116978] shutdown requested, closing listen socket
+[2026-11-08 16:47:59] [INFO]  [pid=116978] shutdown: signalled 0 child process(es)
+[2026-11-08 16:47:59] [INFO]  [pid=116978] server stopped
