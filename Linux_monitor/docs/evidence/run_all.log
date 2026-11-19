@@ -682,7 +682,7 @@ published release build -> build/bin/{server,client}, build/lib/libcommon.so
 [2026-11-08 16:48:39] === SUMMARY: PASS=6 FAIL=0 ===
 ##### exit=0
 
-##### env SUDO_PASS=hou123456000 timeout 120 tests/capture_pcap.sh
+##### env SUDO_PASS=***** timeout 120 tests/capture_pcap.sh
 [2026-11-08 16:48:39] capture_pcap.sh start  port=9090 pcap=/home/wei/linux-system-monitor/captures/loopback.pcap
 [2026-11-08 16:48:39] server started pid=118646 args='' log=/home/wei/linux-system-monitor/docs/evidence/capture_pcap_server.log
 [2026-11-08 16:48:39] 
